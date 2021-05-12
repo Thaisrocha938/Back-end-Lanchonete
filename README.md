@@ -10,6 +10,7 @@ Sistema de pedidos de lanchonete
 #### Foi utilizado o postigresql precisará está intalado ou terá que mudar as configurações do banco em src/config/database.js
 1. No diretorio do projeto digite o comando: 
 > npx sequelize db:create
+
 > yarn sequelize db:migrate
 
 ## Subindo servidor
