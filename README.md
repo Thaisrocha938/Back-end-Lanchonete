@@ -3,7 +3,7 @@ Sistema de pedidos de lanchonete
 
 ## Intalando Dependencias
 > O projeto foi feito em Node.js por esse motivo será necessário que [baixa-lo](https://nodejs.org/pt-br/download/).
--No diretorio do projeto digite o comando :
+####- No diretorio do projeto digite o comando :
 >[npm install](https://docs.npmjs.com/cli/v6/commands/npm-install)
 
 ## Configurando banco de dados 
