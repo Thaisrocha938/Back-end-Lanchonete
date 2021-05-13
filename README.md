@@ -7,11 +7,14 @@ Sistema de pedidos de lanchonete
 >[npm install](https://docs.npmjs.com/cli/v6/commands/npm-install)
 
 ## Configurando banco de dados 
-#### Foi utilizado o postigresql precisará está intalado ou terá que mudar as configurações do banco em src/config/database.js
-1. No diretorio do projeto digite o comando: 
+#### Foi utilizado o postgresql precisará está [intalado](https://www.postgresql.org) com user postgres e senha admin.
+1. poderá modificar as infomações no diretório:
+> src/config/database.js
+
+2. No diretorio do projeto digite o comando: 
 > npx sequelize db:create
 
-> yarn sequelize db:migrate
+> npx sequelize db:migrate
 
 ## Subindo servidor
 > npm run dev

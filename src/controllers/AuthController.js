@@ -2,11 +2,9 @@ const User = require("../model/User");
 const jwt =require('jsonwebtoken');
 const AuthConfig = require('../config/auth');
 
-
 module.exports = {
     async createAuth(req, res){
         const { email, password } =req.body;
-
         const user = await User.findOne({where: { email }});
 
         if(!user){

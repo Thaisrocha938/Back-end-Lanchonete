@@ -22,12 +22,7 @@ module.exports = {
         allowNull: false
       },
       password_has: {
-        type: Sequelize.STRING(16),
-        allowNull: false
-      },
-      password: {
-        type: Sequelize.STRING(16),
-        allowNull: false
+        type: Sequelize.STRING,
       },
       sexo: {
         type: Sequelize.ENUM('Masculino', 'Feminino'),
