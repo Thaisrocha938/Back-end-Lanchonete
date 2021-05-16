@@ -18,7 +18,7 @@ module.exports= {
         if (Array.isArray(errors) && errors.length) {
             return res.status(400).json(errors);
         }else{
-            const produto = await Produto.create({nome, preco, descricao});
+            const produto = await Produto.findOrCreate({where:{ nome }, defaults:{ nome, preco, descricao}});
             return res.json(produto);
         }
     }
