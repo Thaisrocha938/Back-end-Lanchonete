@@ -4,9 +4,8 @@ const v = new validator();
 module.exports= {
     async listProduto(req, res){
         const produto = await Produto.findAll();
-        res.json(produto)
+        return res.json(produto)
     },
-
     async createProduto(req, res){
         const { nome, preco, descricao } = req.body; 
         const schema = {
@@ -21,5 +20,18 @@ module.exports= {
             const produto = await Produto.findOrCreate({where:{ nome }, defaults:{ nome, preco, descricao}});
             return res.json(produto);
         }
+    },
+    async updateProduto(req, res){
+        const { id_produto } = req.params;
+        console.log(id_produto);
+        const produto = await Produto.update(req.body, {where: {id: id_produto}});
+        return res.json(produto);
+    },
+    async deleteProduto(req, res){
+        const { id_produto } = req.params;
+        const produto = await Produto.findOne({where: {id: id_produto}});
+        await produto.destroy(produto);
+        return res.json();
     }
+
 }
