@@ -1,7 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
 
-
-
 class Produto extends Model{
     static init(connection){
         super.init({

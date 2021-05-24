@@ -16,8 +16,8 @@ module.exports = async (req, res, next) =>{
         req.id = tokenDeconded.id
 
         return next();
-    } catch (error) {
-        return res.status(401).json({error: "token invalido"});
+    } catch (err) {
+        throw res.status(401).json({err: "token invalido"});
     }
 
 }
