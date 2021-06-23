@@ -5,15 +5,14 @@ module.exports = {
     async listEndereco(req, res){
         try{
             const { user_id } = req.params;
-            const user = await User.findByPk(user_id);
+            const user = await User.findByPk(user_id, {
+                include:{ association: 'endereco' }
+            });
 
             if (!user) {
                 return res.status(400).json({ erro: 'usuario não encontrado'})   
             }
-            else{
-            const endereco = await Endereco.findAll({where: {user_id:user_id}});
-            return res.json(endereco);
-            }
+            return res.json(user)
         } 
         catch(err){
             throw res.status(500).json(err);
