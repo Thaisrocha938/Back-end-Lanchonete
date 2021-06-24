@@ -5,14 +5,16 @@ module.exports = {
     async listEndereco(req, res){
         try{
             const { user_id } = req.params;
-            const user = await User.findByPk(user_id, {
-                include:{ association: 'endereco' }
-            });
+            const user = await User.findByPk(user_id, {include:{
+                association:'enderecos'
+            }});
 
             if (!user) {
                 return res.status(400).json({ erro: 'usuario não encontrado'})   
             }
-            return res.json(user)
+            else{
+                return res.json(user);
+            }
         } 
         catch(err){
             throw res.status(500).json(err);

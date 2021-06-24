@@ -13,6 +13,7 @@ class User extends Model{
             sequelize: connection
         });
 
+    
         this.addHook('beforeSave', async (user)=>{
             if(user.password_has){
                 user.password_has = await bcrypt.hash(user.password_has, 8);
@@ -20,6 +21,12 @@ class User extends Model{
         });
         return this;
     }
+    static associate(models){
+        User.hasMany(models.Endereco, { foreignKey:'user_id', as: 'enderecos'});
+        User.hasMany(models.Pedido, { foreignKey:'user_id', as: 'pedidos'});
+        
+    }
+    
     checkPassword(password){
         return bcrypt.hashSync(password, 8)
 

@@ -4,6 +4,7 @@ const UserController= require('./controllers/UserController');
 const AuthController = require('./controllers/AuthController');
 const AuthMiddleware = require('./middlewares/AuthMiddleware');
 const EnderecoController = require('./controllers/EnderecoController');
+const PedidoController = require('./controllers/PedidoController');
 
 
 
@@ -24,6 +25,9 @@ routes.get('/produto', ProductController.listProduto);
 routes.post('/produto', ProductController.createProduto);
 routes.put('/produto/:id_produto', ProductController.updateProduto);
 routes.delete('/produto/:id_produto', ProductController.deleteProduto);
+//pedidos
+routes.get('/users/:user_id/pedidos', PedidoController.listPedidos);
+routes.post('/users/:user_id/pedidos', PedidoController.criarPedido);
 
 routes.use(AuthMiddleware);
 
